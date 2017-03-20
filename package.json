@@ -1,0 +1,33 @@
+{
+  "name": "fixed-bn",
+  "version": "0.0.0",
+  "description": "bn.js wrapper that constrains numbers to a fixed width",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "istanbul cover ./tests/index.js",
+    "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+    "lint": "standard",
+    "test": "tape ./tests/index.js"
+  },
+  "keywords": [
+    "digraph",
+    "directed graph",
+    "garph"
+  ],
+  "author": "mjbecze <mjbecze@gmail.com>",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "coveralls": "^2.12.0",
+    "istanbul": "^0.4.5",
+    "standard": "^9.0.2",
+    "tape": "^4.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wanderer/generic-digraph.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wanderer/generic-digraph/issues"
+  },
+  "homepage": "https://github.com/wanderer/generic-digraph"
+}
