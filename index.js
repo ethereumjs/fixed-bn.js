@@ -1,4 +1,5 @@
-const ethUtil = require('ethjs-util')
+const stripHexPrefix = require('strip-hex-prefix')
+const isHexPrefixed = require('is-hex-prefixed')
 const BN = require('bn.js')
 
 /**
@@ -11,8 +12,8 @@ const factory = module.exports = function factory (maxWidth, minWidth = 0) {
   class FixWidth extends BN {
     constructor (value) {
       // bn.js still doesn't support hex prefixes...
-      if ((typeof value === 'string') && ethUtil.isHexPrefixed(value)) {
-        super(ethUtil.stripHexPrefix(value), 16)
+      if ((typeof value === 'string') && isHexPrefixed(value)) {
+        super(stripHexPrefix(value), 16)
       } else {
         super(value, 10)
       }
