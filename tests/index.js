@@ -6,8 +6,11 @@ tape('fix length tests', t => {
   let array = bn.toArray()
   t.equals(array.length, 32, 'toArray should produce the correct length')
 
-  let width = bn.width
-  t.equals(width, 256, 'should have correct lenght')
+  let maxWidth = bn.maxWidth
+  t.equals(maxWidth, 256, 'should have correct lenght')
+
+  let minWidth = bn.minWidth
+  t.equals(minWidth, 0, 'should have correct lenght')
 
   let buffer = bn.toBuffer()
   t.equals(buffer.length, 32, 'toBuffer should produce the correct length')
@@ -34,6 +37,15 @@ tape('fix length tests', t => {
   let threw = false
   try {
     threw = new FixedBN.U64('0x55555555555555555')
+  } catch (e) {
+    threw = true
+  }
+
+  t.ok(threw, 'should throw error whith invalid length')
+
+  threw = false
+  try {
+    threw = new FixedBN.Address('0x55555555555555555')
   } catch (e) {
     threw = true
   }

@@ -1,5 +1,5 @@
 {
-  "name": "fixed-bn",
+  "name": "fixed-bn.js",
   "version": "0.0.0",
   "description": "bn.js wrapper that constrains numbers to a fixed width",
   "main": "index.js",
@@ -10,9 +10,7 @@
     "test": "tape ./tests/index.js"
   },
   "keywords": [
-    "digraph",
-    "directed graph",
-    "garph"
+    "bn.js"
   ],
   "author": "mjbecze <mjbecze@gmail.com>",
   "license": "MPL-2.0",
@@ -24,10 +22,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:wanderer/generic-digraph.git"
+    "url": "git@github.com:ewasm/fixed-bn.js.git"
   },
   "bugs": {
-    "url": "https://github.com/wanderer/generic-digraph/issues"
+    "url": "https://github.com/ewasm/fixed-bn.js/issues"
   },
-  "homepage": "https://github.com/wanderer/generic-digraph"
+  "homepage": "https://github.com/ewasm/fixed-bn.js",
+  "dependencies": {
+    "bn.js": "^4.11.6"
+  }
 }

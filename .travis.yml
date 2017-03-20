@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "7"
+env:
+  matrix:
+    - TEST_SUITE=test
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+      env: TEST_SUITE=coveralls
+    - os: linux
+      env: TEST_SUITE=lint
+script: npm run $TEST_SUITE
