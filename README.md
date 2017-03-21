@@ -32,7 +32,7 @@ Since this module extends [BN.js](https://github.com/indutny/bn.js/) it has the 
 
 ## factory
 
-[./index.js:10-66](https://github.com/ewasm/fixedBN/blob/cdbb5a7fb3507ed1328eba122a9da9cbe141c4ae/./index.js#L10-L66 "Source code on GitHub")
+[./index.js:11-87](https://github.com/ewasm/fixedBN/blob/54003ed769b6485b15e52cfb72a79ab3752cf6b5/./index.js#L11-L87 "Source code on GitHub")
 
 A factory that produces BN.js constructors for a given width
 

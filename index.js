@@ -58,9 +58,29 @@ const factory = module.exports = function factory (maxWidth, minWidth = 0) {
     }
   }
 
-  // This assumes Uint8Array in LSB (WASM code)
+  /**
+   * converts a buffer to a fixed-bn.js
+   * @param {string | integer} value
+   * @param {string} endain
+   */
   FixWidth.fromBuffer = (value, endian = 'be') => {
     return new FixWidth(value, 16, endian)
+  }
+
+  /**
+   * checks if a BN instance is a fixed BN instance
+   * @param {bn.js} bn
+   */
+  FixWidth.isFixBN = (bn) => {
+    return bn.hasOwnProperty('_minWidth') && bn.hasOwnProperty('_maxWidth')
+  }
+
+  /**
+   * checks if a fixed-bn instance is the same width as the contructor
+   * @param {bn.js} fixBN
+   */
+  FixWidth.isSameWidth = (fixBN) => {
+    return minWidth === fixBN.minWidth && maxWidth === fixBN.maxWidth
   }
 
   return FixWidth

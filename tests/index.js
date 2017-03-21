@@ -6,6 +6,9 @@ tape('fix length tests', t => {
   let array = bn.toArray()
   t.equals(array.length, 32, 'toArray should produce the correct length')
 
+  t.ok(FixedBN.U256.isFixBN(bn), 'should detect that bn is a fixed bn')
+  t.ok(FixedBN.U256.isSameWidth(bn), 'should detect that bn is the same length')
+
   let maxWidth = bn.maxWidth
   t.equals(maxWidth, 256, 'should have correct lenght')
 
@@ -51,6 +54,7 @@ tape('fix length tests', t => {
   }
 
   t.ok(threw, 'should throw error whith invalid length')
+
 
   t.end()
 })
