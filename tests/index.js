@@ -54,7 +54,5 @@ tape('fix length tests', t => {
   }
 
   t.ok(threw, 'should throw error whith invalid length')
-
-
   t.end()
 })
