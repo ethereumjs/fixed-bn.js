@@ -32,7 +32,7 @@ Since this module extends [BN.js](https://github.com/indutny/bn.js/) it has the 
 
 ## factory
 
-[./index.js:11-87](https://github.com/ewasm/fixedBN/blob/54003ed769b6485b15e52cfb72a79ab3752cf6b5/./index.js#L11-L87 "Source code on GitHub")
+[./index.js:11-87](https://github.com/ewasm/fixedBN/blob/814e88711940f48efc341ed0c1296f7fa6cdd111/./index.js#L11-L87 "Source code on GitHub")
 
 A factory that produces BN.js constructors for a given width
 
@@ -55,7 +55,7 @@ Each instance has the following additional methods
 
 ## maxWidth
 
-[./index.js:34-36](https://github.com/ewasm/fixedBN/blob/cdbb5a7fb3507ed1328eba122a9da9cbe141c4ae/./index.js#L34-L36 "Source code on GitHub")
+[./index.js:35-37](https://github.com/ewasm/fixedBN/blob/814e88711940f48efc341ed0c1296f7fa6cdd111/./index.js#L35-L37 "Source code on GitHub")
 
 retuns Max Width
 
@@ -63,11 +63,43 @@ Returns **integer**
 
 ## minWidth
 
-[./index.js:42-44](https://github.com/ewasm/fixedBN/blob/cdbb5a7fb3507ed1328eba122a9da9cbe141c4ae/./index.js#L42-L44 "Source code on GitHub")
+[./index.js:43-45](https://github.com/ewasm/fixedBN/blob/814e88711940f48efc341ed0c1296f7fa6cdd111/./index.js#L43-L45 "Source code on GitHub")
 
 retuns Min Width
 
 Returns **integer** 
+
+## fromBuffer
+
+[./index.js:66-68](https://github.com/ewasm/fixedBN/blob/814e88711940f48efc341ed0c1296f7fa6cdd111/./index.js#L66-L68 "Source code on GitHub")
+
+converts a buffer to a fixed-bn.js
+
+**Parameters**
+
+-   `value` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | integer)** 
+-   `endain` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `endian`   (optional, default `'be'`)
+
+## isFixBN
+
+[./index.js:74-76](https://github.com/ewasm/fixedBN/blob/814e88711940f48efc341ed0c1296f7fa6cdd111/./index.js#L74-L76 "Source code on GitHub")
+
+checks if a BN instance is a fixed BN instance
+
+**Parameters**
+
+-   `bn` **bn.js** 
+
+## isSameWidth
+
+[./index.js:82-84](https://github.com/ewasm/fixedBN/blob/814e88711940f48efc341ed0c1296f7fa6cdd111/./index.js#L82-L84 "Source code on GitHub")
+
+checks if a fixed-bn instance is the same width as the contructor
+
+**Parameters**
+
+-   `fixBN` **bn.js** 
 
 
 # LICENSE
