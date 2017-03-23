@@ -17,11 +17,12 @@ const factory = module.exports = function factory (maxWidth, minWidth = 0) {
       } else {
         super(value, 10)
       }
-      if (this.bitLength() > maxWidth) {
+
+      if (this.byteLength() * 8 > maxWidth) {
         throw Error(`number must be less then ${maxWidth} bits`)
       }
 
-      if (this.byteLength() < minWidth) {
+      if (this.byteLength() * 8 < minWidth) {
         throw new Error(`number must be more then ${minWidth} bits`)
       }
       this._maxWidth = maxWidth
