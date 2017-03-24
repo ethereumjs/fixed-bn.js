@@ -1,6 +1,6 @@
 {
   "name": "fixed-bn.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "bn.js wrapper that constrains numbers to a fixed width",
   "main": "index.js",
   "scripts": {
