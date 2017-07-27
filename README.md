@@ -1,5 +1,4 @@
 # SYNOPSIS 
-
 [![NPM Package](https://img.shields.io/npm/v/fixed-bn.js.svg?style=flat-square)](https://www.npmjs.org/package/fixed-bn.js)
 [![Build Status](https://img.shields.io/travis/ewasm/fixed-bn.js.svg?branch=master&style=flat-square)](https://travis-ci.org/ewasm/fixed-bn.js)
 [![Coverage Status](https://img.shields.io/coveralls/ewasm/fixed-bn.js.svg?style=flat-square)](https://coveralls.io/r/ewasm/fixed-bn.js)
