@@ -22,8 +22,8 @@ bnNum.toBuffer()
 
 // you can also create an arbitary fixed lenght bn
 // max bit lenght is 199 bits and min length is 2 bits
-cont I199 = FixedBN(199, 2) 
-const newBnNum = new I99(390248)
+const I199 = FixedBN(199, 2) 
+const newBnNum = new I199(390248)
 ```
 
 # API
