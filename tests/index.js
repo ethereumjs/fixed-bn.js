@@ -1,4 +1,5 @@
 const tape = require('tape')
+const BN = require('bn.js')
 const FixedBN = require('../')
 
 tape('fix length tests', t => {
@@ -55,4 +56,31 @@ tape('fix length tests', t => {
 
   t.ok(threw, 'should throw error whith invalid length')
   t.end()
+})
+
+tape('toBN', t => {
+  const a = new FixedBN.U256(9)
+  const b = a.toBN()
+  t.equal(typeof b.maxWidth, 'undefined')
+  t.end()
+})
+
+tape('ops', t => {
+  t.test('op should return FixedBN', st => {
+    const a = new FixedBN.U256(53)
+    const b = new FixedBN.U256(7)
+    const c = a.add(b)
+    st.equal(c.maxWidth, 256, 'add result should have same width')
+    st.end()
+  })
+
+  t.test('add should not overflow width', st => {
+    const max = new BN(2).pow(new BN(256)).subn(1)
+    const a = new FixedBN.U256('0x' + max.toString('hex'))
+    const b = new FixedBN.U256(1)
+    const c = a.add(b)
+    st.equal(c.maxWidth, 256)
+    st.deepEqual(c.toString('hex'), new FixedBN.U256(1).toString('hex'))
+    st.end()
+  })
 })

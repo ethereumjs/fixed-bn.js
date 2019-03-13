@@ -57,6 +57,26 @@ const factory = module.exports = function factory (maxWidth, minWidth = 0) {
     toArrayLike (type, endian) {
       return super.toArrayLike(type, endian, this._maxWidth / 8)
     }
+
+    toBN () {
+      return super.clone()
+    }
+
+    // Applies modulo on overflow
+    add (num) {
+      let r = super.add(num)
+      if (r.byteLength() * 8 > this._maxWidth) {
+        const f = factory(this._maxWidth, this._minWidth)
+        r = r.mod(f.maxInteger())
+      }
+      return r
+    }
+
+    clone () {
+      const r = new (factory(this._maxWidth, this._minWidth))(0)
+      this.copy(r)
+      return r
+    }
   }
 
   /**
@@ -82,6 +102,10 @@ const factory = module.exports = function factory (maxWidth, minWidth = 0) {
    */
   FixWidth.isSameWidth = (fixBN) => {
     return minWidth === fixBN.minWidth && maxWidth === fixBN.maxWidth
+  }
+
+  FixWidth.maxInteger = () => {
+    return new FixWidth('0x' + new BN(2).pow(new BN(maxWidth)).subn(1).toString('hex'))
   }
 
   return FixWidth
