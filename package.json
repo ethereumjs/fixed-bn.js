@@ -19,7 +19,7 @@
     "unitTests": "ts-node ./node_modules/tape/bin/tape ./tests/*.ts",
     "test": "npm run lint && npm run unitTests",
     "test:fix": "npm run lint:fix && npm run unitTests",
-    "docs:build": "typedoc --out docs --excludePrivate --excludeExternals --mode file --readme none --theme markdown --mdEngine github src/*.ts"
+    "docs:build": "typedoc --out docs --mode file --readme none --theme markdown --mdEngine github --gitRevision master --excludeNotExported src/*.ts"
   },
   "keywords": [
     "bn.js"
@@ -40,6 +40,8 @@
     "tape": "^4.6.3",
     "ts-node": "^8.0.3",
     "tslint": "^5.14.0",
+    "typedoc": "^0.14.2",
+    "typedoc-plugin-markdown": "^1.1.27",
     "typescript": "^3.3.3333",
     "typestrict": "^1.0.2"
   },
