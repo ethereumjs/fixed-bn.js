@@ -1,6 +1,10 @@
 import BN = require('bn.js')
 import { FixedWidthBN, Endianness } from './fixed-width'
 
+/**
+ * Convenience class for creating FixedWidthBN values
+ * with the same width.
+ */
 export class Factory {
   width: number
 
