@@ -1,6 +1,7 @@
 import * as tape from 'tape'
 import BN = require('bn.js')
 import { U64, U256 } from '../src'
+import { padHexToLength } from './utils'
 
 tape('Factory types', (t: tape.Test) => {
   t.test('should instantiate from number', (st: tape.Test) => {
@@ -46,7 +47,3 @@ tape('Factory types', (t: tape.Test) => {
     st.end()
   })
 })
-
-const padHexToLength = (hex: string, bitLength: number): string => {
-  return '0'.repeat(2 * (bitLength / 8 - hex.length / 2)).concat(hex)
-}

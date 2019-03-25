@@ -1,6 +1,7 @@
 import * as tape from 'tape'
 import BN = require('bn.js')
 import { FixedWidthBN } from '../src'
+import { padHexToLength } from './utils'
 
 tape('Constructor', (t: tape.Test) => {
   t.test('should instantiate from number', (st: tape.Test) => {
@@ -151,6 +152,44 @@ tape('Sqr', (t: tape.Test) => {
     const c = a.sqrMod()
     st.equal(c.width, 64)
     st.true(c.isZero())
+    st.end()
+  })
+})
+
+tape('Pow', (t: tape.Test) => {
+  t.test('should pow number', (st: tape.Test) => {
+    const a = new FixedWidthBN(64, 8)
+    const b = new FixedWidthBN(64, 4)
+    const c = a.pow(b)
+    st.equal(c.width, 64)
+    st.equal(c.toNumber(), 4096)
+    st.end()
+  })
+
+  t.test('should throw when pow overflows', (st: tape.Test) => {
+    const a = new FixedWidthBN(64, 2)
+    const b = new FixedWidthBN(64, 65)
+    st.throws(() => a.pow(b))
+    st.end()
+  })
+
+  t.test('should wrap when powMod overflows', (st: tape.Test) => {
+    const a = new FixedWidthBN(64, 5)
+    const b = new FixedWidthBN(64, 28)
+    const c = a.powMod(b)
+    st.equal(c.width, 64)
+    st.equal(c.toString(), padHexToLength('4fce5e3e2502611', 64))
+    st.end()
+  })
+})
+
+tape('Div', (t: tape.Test) => {
+  t.test('should div same width numbers', (st: tape.Test) => {
+    const a = new FixedWidthBN(64, 64)
+    const b = new FixedWidthBN(64, 4)
+    const c = a.div(b)
+    st.equal(c.width, 64)
+    st.equal(c.toNumber(), 16)
     st.end()
   })
 })
