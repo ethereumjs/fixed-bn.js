@@ -193,3 +193,54 @@ tape('Div', (t: tape.Test) => {
     st.end()
   })
 })
+
+tape('Or', (t: tape.Test) => {
+  const a = FixedWidthBN.fromString(8, '11001100', 2)
+  const b = FixedWidthBN.fromString(8, '10110101', 2)
+  const c = a.or(b)
+  t.equal(c.toString(2), '11111101')
+  t.end()
+})
+
+tape('And', (t: tape.Test) => {
+  const a = FixedWidthBN.fromString(8, '11001100', 2)
+  const b = FixedWidthBN.fromString(8, '10110101', 2)
+  const c = a.and(b)
+  t.equal(c.toString(2), '10000100')
+  t.end()
+})
+
+tape('Xor', (t: tape.Test) => {
+  const a = FixedWidthBN.fromString(8, '11001100', 2)
+  const b = FixedWidthBN.fromString(8, '10110101', 2)
+  const c = a.xor(b)
+  t.equal(c.toString(2), '01111001')
+  t.end()
+})
+
+tape('Not', (t: tape.Test) => {
+  const a = FixedWidthBN.fromString(8, '11001100', 2)
+  const c = a.not()
+  t.equal(c.toString(2), '00110011')
+  t.end()
+})
+
+tape('Shl', (t: tape.Test) => {
+  const a = FixedWidthBN.fromString(8, '11001100', 2)
+  const c = a.shl(3)
+  t.equal(c.toString(2), '01100000')
+  t.end()
+})
+
+tape('Shr', (t: tape.Test) => {
+  const a = FixedWidthBN.fromString(8, '11001100', 2)
+  const c = a.shr(3)
+  t.equal(c.toString(2), '00011001')
+  t.end()
+})
+
+tape('ToString', (t: tape.Test) => {
+  const a = FixedWidthBN.fromString(16, '00110011', 2)
+  t.equal(a.toString(2), '0000000000110011')
+  t.end()
+})
