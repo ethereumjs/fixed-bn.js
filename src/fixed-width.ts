@@ -136,7 +136,7 @@ export class FixedWidthBN {
    */
   toString(base: number = 16, pad: boolean = true): string {
     if (pad && (base !== 2 && base !== 16)) {
-      throw new Error('Padding string only supported for bases divisible by 2')
+      throw new Error('Padding string only supported for bases 2 and 16')
     }
 
     if (pad) {
@@ -477,6 +477,14 @@ export class FixedWidthBN {
   shr(b: number): FixedWidthBN {
     const c = this._bn.shrn(b).mod(this.modulus)
     return FixedWidthBN.fromBN(this._width, c)
+  }
+
+  /**
+   * Tests if a specific bit is set.
+   * @param b - Index of bit to test
+   */
+  test(b: number): boolean {
+    return this._bn.testn(b)
   }
 
   /**

@@ -255,6 +255,14 @@ tape('Shr', (t: tape.Test) => {
   t.end()
 })
 
+tape('Test', (t: tape.Test) => {
+  const a = FixedWidthBN.fromString(8, '11001100', 2)
+  t.equal(a.test(0), false)
+  t.equal(a.test(7), true)
+  t.equal(a.test(2), true)
+  t.end()
+})
+
 tape('ToString', (t: tape.Test) => {
   const a = FixedWidthBN.fromString(16, '00110011', 2)
   t.equal(a.toString(2), '0000000000110011')
