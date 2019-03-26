@@ -43,13 +43,15 @@ A [BN](https://github.com/indutny/bn.js) wrapper that limits numbers to a fixed 
 * [isZero](fixedwidthbn.md#iszero)
 * [lt](fixedwidthbn.md#lt)
 * [lte](fixedwidthbn.md#lte)
+* [mod](fixedwidthbn.md#mod)
 * [mul](fixedwidthbn.md#mul)
 * [mulMod](fixedwidthbn.md#mulmod)
+* [not](fixedwidthbn.md#not)
 * [or](fixedwidthbn.md#or)
 * [pow](fixedwidthbn.md#pow)
 * [powMod](fixedwidthbn.md#powmod)
-* [shln](fixedwidthbn.md#shln)
-* [shrn](fixedwidthbn.md#shrn)
+* [shl](fixedwidthbn.md#shl)
+* [shr](fixedwidthbn.md#shr)
 * [sqr](fixedwidthbn.md#sqr)
 * [sqrMod](fixedwidthbn.md#sqrmod)
 * [sub](fixedwidthbn.md#sub)
@@ -158,7 +160,7 @@ ___
 
 ▸ **add**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:251](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L251)*
+*Defined in [fixed-width.ts:261](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L261)*
 
 Returns a new FixedWidthBN computed from adding value with `b`.
 
@@ -181,7 +183,7 @@ ___
 
 ▸ **addMod**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:263](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L263)*
+*Defined in [fixed-width.ts:273](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L273)*
 
 Returns a new FixedWidthBN computed from adding value with `b`. It wraps the result on overflow.
 
@@ -202,7 +204,7 @@ ___
 
 ▸ **and**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:384](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L384)*
+*Defined in [fixed-width.ts:405](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L405)*
 
 Returns a new FixedWidthBN computed from applying a bitwise and.
 
@@ -223,7 +225,7 @@ ___
 
 ▸ **bitLength**(): `number`
 
-*Defined in [fixed-width.ts:153](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L153)*
+*Defined in [fixed-width.ts:163](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L163)*
 
 Returns bit length of value.
 
@@ -236,7 +238,7 @@ ___
 
 ▸ **clone**(): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:145](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L145)*
+*Defined in [fixed-width.ts:155](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L155)*
 
 Clones value.
 
@@ -249,7 +251,7 @@ ___
 
 ▸ **cmp**(b: *[FixedWidthBN](fixedwidthbn.md)*): `number`
 
-*Defined in [fixed-width.ts:190](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L190)*
+*Defined in [fixed-width.ts:200](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L200)*
 
 Compares numbers and returns -1 (a < b), 0 (a == b) or 1 (a > b).
 
@@ -270,7 +272,7 @@ ___
 
 ▸ **div**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:362](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L362)*
+*Defined in [fixed-width.ts:372](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L372)*
 
 Returns a new FixedWidthBN computed from dividing value by `b`.
 
@@ -291,7 +293,7 @@ ___
 
 ▸ **eq**(b: *[FixedWidthBN](fixedwidthbn.md)*): `boolean`
 
-*Defined in [fixed-width.ts:240](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L240)*
+*Defined in [fixed-width.ts:250](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L250)*
 
 Returns true if value is equal to `b`.
 
@@ -312,7 +314,7 @@ ___
 
 ▸ **gt**(b: *[FixedWidthBN](fixedwidthbn.md)*): `boolean`
 
-*Defined in [fixed-width.ts:220](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L220)*
+*Defined in [fixed-width.ts:230](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L230)*
 
 Returns true if value is greated than `b`.
 
@@ -333,7 +335,7 @@ ___
 
 ▸ **gte**(b: *[FixedWidthBN](fixedwidthbn.md)*): `boolean`
 
-*Defined in [fixed-width.ts:230](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L230)*
+*Defined in [fixed-width.ts:240](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L240)*
 
 Returns true if value is greated than or equal to `b`.
 
@@ -354,7 +356,7 @@ ___
 
 ▸ **hasSameWidth**(b: *[FixedWidthBN](fixedwidthbn.md)*): `boolean`
 
-*Defined in [fixed-width.ts:160](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L160)*
+*Defined in [fixed-width.ts:170](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L170)*
 
 Returns true if `b` has same width (not bit length) as value.
 
@@ -373,7 +375,7 @@ ___
 
 ▸ **isEven**(): `boolean`
 
-*Defined in [fixed-width.ts:167](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L167)*
+*Defined in [fixed-width.ts:177](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L177)*
 
 Returns true if number is even.
 
@@ -386,7 +388,7 @@ ___
 
 ▸ **isOdd**(): `boolean`
 
-*Defined in [fixed-width.ts:174](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L174)*
+*Defined in [fixed-width.ts:184](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L184)*
 
 Returns true if number is odd.
 
@@ -399,7 +401,7 @@ ___
 
 ▸ **isZero**(): `boolean`
 
-*Defined in [fixed-width.ts:181](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L181)*
+*Defined in [fixed-width.ts:191](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L191)*
 
 Returns true if number is zero.
 
@@ -412,7 +414,7 @@ ___
 
 ▸ **lt**(b: *[FixedWidthBN](fixedwidthbn.md)*): `boolean`
 
-*Defined in [fixed-width.ts:200](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L200)*
+*Defined in [fixed-width.ts:210](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L210)*
 
 Returns true if value is less than `b`.
 
@@ -433,7 +435,7 @@ ___
 
 ▸ **lte**(b: *[FixedWidthBN](fixedwidthbn.md)*): `boolean`
 
-*Defined in [fixed-width.ts:210](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L210)*
+*Defined in [fixed-width.ts:220](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L220)*
 
 Returns true if value is less than or equal to `b`.
 
@@ -448,13 +450,34 @@ Returns true if value is less than or equal to `b`.
 **Returns:** `boolean`
 
 ___
+<a id="mod"></a>
+
+###  mod
+
+▸ **mod**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
+
+*Defined in [fixed-width.ts:383](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L383)*
+
+Returns a new FixedWidthBN computed from value mod b.
+
+*__throws__*: if `b` has a different width
+
+**Parameters:**
+
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| b | [FixedWidthBN](fixedwidthbn.md) |  Modulus |
+
+**Returns:** [FixedWidthBN](fixedwidthbn.md)
+
+___
 <a id="mul"></a>
 
 ###  mul
 
 ▸ **mul**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:299](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L299)*
+*Defined in [fixed-width.ts:309](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L309)*
 
 Returns a new FixedWidthBN computed from multiplying value with `b`.
 
@@ -477,7 +500,7 @@ ___
 
 ▸ **mulMod**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:311](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L311)*
+*Defined in [fixed-width.ts:321](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L321)*
 
 Returns a new FixedWidthBN computed from multiplying value with `b`. It wraps the result on overflow.
 
@@ -492,13 +515,26 @@ Returns a new FixedWidthBN computed from multiplying value with `b`. It wraps th
 **Returns:** [FixedWidthBN](fixedwidthbn.md)
 
 ___
+<a id="not"></a>
+
+###  not
+
+▸ **not**(): [FixedWidthBN](fixedwidthbn.md)
+
+*Defined in [fixed-width.ts:445](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L445)*
+
+Returns a new FixedWidthBN computed from bitwise negation of value.
+
+**Returns:** [FixedWidthBN](fixedwidthbn.md)
+
+___
 <a id="or"></a>
 
 ###  or
 
 ▸ **or**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:373](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L373)*
+*Defined in [fixed-width.ts:394](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L394)*
 
 Returns a new FixedWidthBN computed from applying a bitwise or.
 
@@ -519,7 +555,7 @@ ___
 
 ▸ **pow**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:341](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L341)*
+*Defined in [fixed-width.ts:351](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L351)*
 
 Returns a new FixedWidthBN computed from raising value to power of `b`.
 
@@ -542,7 +578,7 @@ ___
 
 ▸ **powMod**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:352](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L352)*
+*Defined in [fixed-width.ts:362](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L362)*
 
 Returns a new FixedWidthBN computed from raising value to power of `b`. It wraps the result on overflow.
 
@@ -557,15 +593,15 @@ Returns a new FixedWidthBN computed from raising value to power of `b`. It wraps
 **Returns:** [FixedWidthBN](fixedwidthbn.md)
 
 ___
-<a id="shln"></a>
+<a id="shl"></a>
 
-###  shln
+###  shl
 
-▸ **shln**(b: *`number`*): [FixedWidthBN](fixedwidthbn.md)
+▸ **shl**(b: *`number`*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:406](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L406)*
+*Defined in [fixed-width.ts:427](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L427)*
 
-Returns a new FixedWidthBN computed from shifting value to left by a number of bits.
+Returns a new FixedWidthBN computed from shifting value to left by a number of bits. It discards bits that are shifted out of width.
 
 **Parameters:**
 
@@ -576,15 +612,15 @@ Returns a new FixedWidthBN computed from shifting value to left by a number of b
 **Returns:** [FixedWidthBN](fixedwidthbn.md)
 
 ___
-<a id="shrn"></a>
+<a id="shr"></a>
 
-###  shrn
+###  shr
 
-▸ **shrn**(b: *`number`*): [FixedWidthBN](fixedwidthbn.md)
+▸ **shr**(b: *`number`*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:416](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L416)*
+*Defined in [fixed-width.ts:437](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L437)*
 
-Returns a new FixedWidthBN computed from shifting value to right by a number of bits.
+Returns a new FixedWidthBN computed from shifting value to right by a number of bits. It discards bits that are shifted out of width.
 
 **Parameters:**
 
@@ -601,7 +637,7 @@ ___
 
 ▸ **sqr**(): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:321](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L321)*
+*Defined in [fixed-width.ts:331](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L331)*
 
 Returns a new FixedWidthBN computed from multiplying value with itself (square of value).
 
@@ -616,7 +652,7 @@ ___
 
 ▸ **sqrMod**(): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:330](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L330)*
+*Defined in [fixed-width.ts:340](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L340)*
 
 Returns a new FixedWidthBN computed from multiplying value with itself (square of value). It wraps the result on overflow.
 
@@ -629,7 +665,7 @@ ___
 
 ▸ **sub**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:275](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L275)*
+*Defined in [fixed-width.ts:285](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L285)*
 
 Returns a new FixedWidthBN computed from subtracting value from `b`.
 
@@ -652,7 +688,7 @@ ___
 
 ▸ **subMod**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:287](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L287)*
+*Defined in [fixed-width.ts:297](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L297)*
 
 Returns a new FixedWidthBN computed from subtracting value from `b`. It wraps the result on underflow, e.g. if width is 8, `2 - 3 == 255`.
 
@@ -737,9 +773,9 @@ ___
 
 ###  toString
 
-▸ **toString**(base?: *`number`*): `string`
+▸ **toString**(base?: *`number`*, pad?: *`boolean`*): `string`
 
-*Defined in [fixed-width.ts:136](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L136)*
+*Defined in [fixed-width.ts:137](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L137)*
 
 Returns value encoded as a string (without `0x` prefix for base 16).
 
@@ -748,6 +784,7 @@ Returns value encoded as a string (without `0x` prefix for base 16).
 | Name | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `Default value` base | `number` | 16 |  Base for encoding (e.g. 16 for hex) |
+| `Default value` pad | `boolean` | true |  Pad output string to width (only for bases 2 and 16) |
 
 **Returns:** `string`
 
@@ -758,7 +795,7 @@ ___
 
 ▸ **xor**(b: *[FixedWidthBN](fixedwidthbn.md)*): [FixedWidthBN](fixedwidthbn.md)
 
-*Defined in [fixed-width.ts:395](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L395)*
+*Defined in [fixed-width.ts:416](https://github.com/ewasm/fixed-bn.js/blob/master/src/fixed-width.ts#L416)*
 
 Returns a new FixedWidthBN computed from applying a bitwise xor.
 
