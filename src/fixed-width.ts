@@ -132,11 +132,21 @@ export class FixedWidthBN {
   /**
    * Returns value encoded as a string (without `0x` prefix for base 16).
    * @param base - Base for encoding (e.g. 16 for hex)
+   * @param pad - Pad output string to width (only for bases 2 and 16)
    */
-  toString(base: number = 16): string {
-    // BN.toString accepts length as number of chars in output string
-    // which is 2 for each byte, and hence: 2 * (bits / 8)
-    return this._bn.toString(base, this._width / 4)
+  toString(base: number = 16, pad: boolean = true): string {
+    if (pad && (base !== 2 && base !== 16)) {
+      throw new Error('Padding string only supported for bases divisible by 2')
+    }
+
+    if (pad) {
+      // BN.toString accepts length as number of chars in output string
+      // which, e.g. for base 16 is 2 for each byte, and hence: 2 * (bits / 8)
+      const length = base === 16 ? this._width / 4 : this._width
+      return this._bn.toString(base, length)
+    } else {
+      return this._bn.toString(base)
+    }
   }
 
   /**
@@ -400,21 +410,29 @@ export class FixedWidthBN {
 
   /**
    * Returns a new FixedWidthBN computed from shifting value to left
-   * by a number of bits.
+   * by a number of bits. It discards bits that are shifted out of width.
    * @param b - Number of bits to shift
    */
-  shln(b: number): FixedWidthBN {
+  shl(b: number): FixedWidthBN {
     const c = this._bn.shln(b)
     return FixedWidthBN.fromBN(this._width, c)
   }
 
   /**
    * Returns a new FixedWidthBN computed from shifting value to right
-   * by a number of bits.
+   * by a number of bits. It discards bits that are shifted out of width.
    * @param b - Number of bits to shift
    */
-  shrn(b: number): FixedWidthBN {
-    const c = this._bn.shrn(b)
+  shr(b: number): FixedWidthBN {
+    const c = this._bn.shrn(b).mod(this.modulus)
+    return FixedWidthBN.fromBN(this._width, c)
+  }
+
+  /**
+   * Returns a new FixedWidthBN computed from bitwise negation of value.
+   */
+  not(): FixedWidthBN {
+    const c = this._bn.notn(this._width)
     return FixedWidthBN.fromBN(this._width, c)
   }
 }
