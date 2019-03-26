@@ -165,6 +165,13 @@ export class FixedWidthBN {
   }
 
   /**
+   * Returns byte length of value.
+   */
+  byteLength(): number {
+    return this._bn.byteLength()
+  }
+
+  /**
    * Returns true if `b` has same width (not bit length) as value.
    */
   hasSameWidth(b: FixedWidthBN): boolean {
@@ -223,6 +230,22 @@ export class FixedWidthBN {
   }
 
   /**
+   * Returns true if value is less than `b`.
+   * @param b - Value to be compared against
+   */
+  ltn(b: number): boolean {
+    return this._bn.ltn(b)
+  }
+
+  /**
+   * Returns true if value is less than or equal to `b`.
+   * @param b - Value to be compared against
+   */
+  lten(b: number): boolean {
+    return this._bn.lten(b)
+  }
+
+  /**
    * Returns true if value is greated than `b`.
    * @param b - Value to be compared against
    * @throws if `b` has a different width
@@ -240,6 +263,23 @@ export class FixedWidthBN {
   gte(b: FixedWidthBN): boolean {
     assert(this.hasSameWidth(b))
     return this._bn.gte(b._bn)
+  }
+
+  /**
+   * Returns true if value is greated than `b`.
+   * @param b - Value to be compared against
+   */
+  gtn(b: number): boolean {
+    return this._bn.gtn(b)
+  }
+
+  /**
+   * Returns true if value is greated than or equal to `b`.
+   * @param b - Value to be compared against
+   * @throws if `b` has a different width
+   */
+  gten(b: number): boolean {
+    return this._bn.gten(b)
   }
 
   /**

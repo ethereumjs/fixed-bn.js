@@ -21,11 +21,19 @@ tape('Comparison', (t: tape.Test) => {
   t.test('should compare two same width BNs', (st: tape.Test) => {
     const a = new FixedWidthBN(64, 21)
     const b = new FixedWidthBN(64, 20)
+    const c = 99
+    const d = 21
     st.equal(a.lt(b), false)
     st.equal(a.lte(b), false)
     st.equal(a.gt(b), true)
     st.equal(a.gte(b), true)
     st.equal(a.eq(b), false)
+    st.equal(a.ltn(c), true)
+    st.equal(a.lten(c), true)
+    st.equal(a.lten(d), true)
+    st.equal(a.gtn(c), false)
+    st.equal(a.gten(c), false)
+    st.equal(a.gten(d), true)
     st.end()
   })
 
