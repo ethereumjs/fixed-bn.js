@@ -108,16 +108,18 @@ export class FixedWidthBN {
    * Returns number as a Buffer.
    * @param endian - Endianness
    */
-  toBuffer(endian: Endianness = 'be'): Buffer {
-    return this._bn.toBuffer(endian, this._width / 8)
+  toBuffer(endian: Endianness = 'be', pad: boolean = false): Buffer {
+    const length = pad ? this._width / 8 : 1
+    return this._bn.toBuffer(endian, length)
   }
 
   /**
    * Returns number as an array.
    * @param endian - Endianness
    */
-  toArray(endian: Endianness = 'be'): number[] {
-    return this._bn.toArray(endian, this._width / 8)
+  toArray(endian: Endianness = 'be', pad: boolean = false): number[] {
+    const length = pad ? this._width / 8 : 1
+    return this._bn.toArray(endian, length)
   }
 
   /**
