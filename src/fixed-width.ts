@@ -376,6 +376,17 @@ export class FixedWidthBN {
   }
 
   /**
+   * Returns a new FixedWidthBN computed from value mod b.
+   * @param b - Modulus
+   * @throws if `b` has a different width
+   */
+  mod(b: FixedWidthBN): FixedWidthBN {
+    assert(this.hasSameWidth(b))
+    const c = this._bn.mod(b._bn)
+    return FixedWidthBN.fromBN(this._width, c)
+  }
+
+  /**
    * Returns a new FixedWidthBN computed from applying a bitwise or.
    * @param b - Second operand
    * @throws if `b` has a different width
@@ -414,7 +425,7 @@ export class FixedWidthBN {
    * @param b - Number of bits to shift
    */
   shl(b: number): FixedWidthBN {
-    const c = this._bn.shln(b)
+    const c = this._bn.shln(b).mod(this.modulus)
     return FixedWidthBN.fromBN(this._width, c)
   }
 

@@ -194,6 +194,14 @@ tape('Div', (t: tape.Test) => {
   })
 })
 
+tape('Mod', (t: tape.Test) => {
+  const a = new FixedWidthBN(8, 17)
+  const b = new FixedWidthBN(8, 4)
+  const c = a.mod(b)
+  t.equal(c.toNumber(), 1)
+  t.end()
+})
+
 tape('Or', (t: tape.Test) => {
   const a = FixedWidthBN.fromString(8, '11001100', 2)
   const b = FixedWidthBN.fromString(8, '10110101', 2)
