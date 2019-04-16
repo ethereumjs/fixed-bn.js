@@ -16,7 +16,7 @@
     "tsc": "ethereumjs-config-tsc",
     "lint": "ethereumjs-config-lint",
     "lint:fix": "ethereumjs-config-lint-fix",
-    "unitTests": "ts-node ./node_modules/tape/bin/tape ./tests/*.ts",
+    "unitTests": "npm run build && tape ./tests/*.js",
     "test": "npm run lint && npm run unitTests",
     "test:fix": "npm run lint:fix && npm run unitTests",
     "docs:build": "typedoc --out docs --mode file --readme none --theme markdown --mdEngine github --gitRevision master --excludeNotExported src/*.ts"

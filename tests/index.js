@@ -1,13 +1,10 @@
 const tape = require('tape')
-const FixedBN = require('../')
+const FixedBN = require('../dist')
 
 tape('fix length tests', t => {
-  let bn = new FixedBN.U256(9879879)
+  let bn = FixedBN.U256.fromNumber(9879879)
   let array = bn.toArray()
   t.equals(array.length, 32, 'toArray should produce the correct length')
-
-  t.ok(FixedBN.U256.isFixBN(bn), 'should detect that bn is a fixed bn')
-  t.ok(FixedBN.U256.isSameWidth(bn), 'should detect that bn is the same length')
 
   let maxWidth = bn.maxWidth
   t.equals(maxWidth, 256, 'should have correct lenght')
@@ -24,7 +21,7 @@ tape('fix length tests', t => {
   let arrayLike = bn.toArrayLike(Buffer)
   t.equals(arrayLike.length, 32, 'toArrayLike should produce the correct length')
 
-  bn = new FixedBN.U64(9879879)
+  bn = FixedBN.U64.fromNumber(9879879)
   array = bn.toArray()
   t.equals(array.length, 8, 'toArray should produce the correct length')
 
@@ -34,12 +31,12 @@ tape('fix length tests', t => {
   arrayLike = bn.toArrayLike(Buffer)
   t.equals(arrayLike.length, 8, 'toArrayLike should produce the correct length')
 
-  const fromHex = new FixedBN.U64('0x5555555')
+  const fromHex = FixedBN.U64.fromString('0x5555555')
   t.equals(fromHex.toString(), '89478485', 'should handle hex strings')
 
   let threw = false
   try {
-    threw = new FixedBN.U64('0x55555555555555555')
+    threw = FixedBN.U64.fromString('0x55555555555555555')
   } catch (e) {
     threw = true
   }
@@ -48,7 +45,7 @@ tape('fix length tests', t => {
 
   threw = false
   try {
-    threw = new FixedBN.Address('0x55555555555555555')
+    threw = FixedBN.Address.fromString('0x55555555555555555')
   } catch (e) {
     threw = true
   }
